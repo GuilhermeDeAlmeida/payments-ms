@@ -1,0 +1,8 @@
+CREATE TABLE IF NOT EXISTS payments (
+    id BIGINT PRIMARY KEY AUTO_INCREMENT,
+    amount DOUBLE NOT NULL,
+    card_number VARCHAR(255) NOT NULL,
+    expiration_date VARCHAR(255) NOT NULL,
+    cvv VARCHAR(255) NOT NULL,
+    customer_id VARCHAR(255) NOT NULL
+);
