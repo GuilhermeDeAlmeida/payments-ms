@@ -12,7 +12,7 @@ jobs:
       steps:
         - uses: actions/checkout@v1
         - name: set JDK
-          uses: actions/setuo-java@v1
+          uses: actions/setup-java@v1
           with:
             java-version: '17'
 
