@@ -3,7 +3,7 @@ name: CI
 on:
   push:
       branches:
-        - *
+        - '*'
 jobs:
   in-docker_test:
       name: Testes automatizados
@@ -20,7 +20,7 @@ jobs:
           uses: actions/cache@v1
           with:
             path: ~/.m2
-            key: ${{runner.os}}-m2-${{hasFile('**/pom.xml')}}
+            key: ${{runner.os}}-m2-${{hashFiles('**/pom.xml')}}
             restore-key: ${{}}--m2
 
         - name: Executar testes
