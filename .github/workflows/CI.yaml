@@ -10,7 +10,7 @@ jobs:
       runs-on: ubuntu-latest
 
       steps:
-        - uses: actions/chechkout@v1
+        - uses: actions/checkout@v1
         - name: set JDK
           uses: actions/setuo-java@v1
           with:
