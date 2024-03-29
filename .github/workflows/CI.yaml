@@ -2,26 +2,28 @@ name: CI
 
 on:
   push:
-      branches:
-        - '*'
+    branches:
+      - '*'
+
 jobs:
   in-docker_test:
-      name: Testes automatizados
-      runs-on: ubuntu-latest
+    name: Testes automatizados
+    runs-on: ubuntu-latest
 
-      steps:
-        - uses: actions/checkout@v1
-        - name: set JDK
-          uses: actions/setup-java@v1
-          with:
-            java-version: '17'
+    steps:
+      - uses: actions/checkout@v1
 
-        - name: Cache de deps
-          uses: actions/cache@v1
-          with:
-            path: ~/.m2
-            key: ${{runner.os}}-m2-${{hashFiles('**/pom.xml')}}
-            restore-key: ${{ runner.os }}-m2
+      - name: Set JDK
+        uses: actions/setup-java@v1
+        with:
+          java-version: '17'
 
-        - name: Executar testes
-          run: mvn -B test
+      - name: Cache de deps
+        uses: actions/cache@v1
+        with:
+          path: ~/.m2
+          key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
+          restore-keys: ${{ runner.os }}-m2
+
+      - name: Executar testes
+        run: mvn -B test
