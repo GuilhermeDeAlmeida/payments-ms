@@ -15,6 +15,7 @@ abstract class ContainerConfiguration {
             withDatabaseName("testdb")
             withUsername("joao")
             withPassword("123456")
+            withReuse(true)
         }
         @Container
         private val redisContainer = GenericContainer<Nothing>("redis:latest").apply {

@@ -43,13 +43,8 @@ class PaymentControllerTest {
     @Test
     fun `deve retornar codigo 200 quando chamar pyaments com token`(){
         mockMvc.get(RECURSO){
-            headers {
-                token?.let {
-                    this.setBearerAuth(it)
-                }
-            }
-        }
-            .andExpect { status{is2xxSuccessful()} }
+            headers {token?.let {this.setBearerAuth(it)}}
+        }.andExpect { status{is2xxSuccessful()} }
     }
     @Test
     fun `deve retornar codigo 200 quando chamar pyaments COM ID com token`(){
