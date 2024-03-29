@@ -21,7 +21,7 @@ jobs:
           with:
             path: ~/.m2
             key: ${{runner.os}}-m2-${{hashFiles('**/pom.xml')}}
-            restore-key: ${{}}--m2
+            restore-key: ${{ runner.os }}-m2
 
         - name: Executar testes
           run: mvn -B test
