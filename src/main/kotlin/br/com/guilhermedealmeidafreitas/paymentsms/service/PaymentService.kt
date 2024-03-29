@@ -23,7 +23,7 @@ class PaymentService (
     @Cacheable(cacheNames = ["payments"], key ="#root.method.name")
     fun getAllPayments(customerId: String?, pagination: Pageable): Page<PaymentView> {
         val payments = customerId?.let {
-            paymentRepository.findByCustomerId(customerId)
+            paymentRepository.findByCustomerId(customerId, pagination)
         }?: paymentRepository.findAll(pagination)
 //        emailService.notificar()
         return payments.map { t -> paymentViewMapper.map(t) }

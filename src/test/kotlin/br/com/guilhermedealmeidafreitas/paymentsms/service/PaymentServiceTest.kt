@@ -24,7 +24,7 @@ class PaymentServiceTest {
     private val pages = PageImpl(payments)
     private val page: Pageable = mockk()
     private val paymentRepository: PaymentRepository = mockk{
-        every { findByCustomerId(any()) } returns pages
+        every { findByCustomerId(any(), any()) } returns pages
 }
     private val paymentViewMapper: PaymentViewMapper = mockk()
     private val paymentFormMapper: PaymentFormMapper = mockk()
@@ -41,7 +41,7 @@ class PaymentServiceTest {
 
         paymentService.getAllPayments("1", page)
 
-        verify(exactly = 1) { paymentRepository.findByCustomerId(any()) }
+        verify(exactly = 1) { paymentRepository.findByCustomerId(any(), any()) }
         verify(exactly = 1) { paymentViewMapper.map(any()) }
         verify(exactly = 0) { paymentRepository.findAll(page) }
     }

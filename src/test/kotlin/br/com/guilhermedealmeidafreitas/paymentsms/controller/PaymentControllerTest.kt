@@ -23,7 +23,7 @@ class PaymentControllerTest {
     private var token: String? = null
     companion object {
         private const val RECURSO = "/payments"
-        private const val RECURSO_ID = RECURSO.plus("%s ")
+        private const val RECURSO_ID = RECURSO.plus("/%s")
     }
 
     @BeforeEach
