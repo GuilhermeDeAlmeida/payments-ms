@@ -25,33 +25,6 @@ class PaymentRepositoryTest: ContainerConfiguration(){
     private val payment: Payment = PaymentTest.build()
     private val pagination = PageRequest.of(0,5)
 
-
-        companion object {
-            @Container
-            private val mysqlContainer = MySQLContainer<Nothing>("mysql:8.0.28").apply {
-                withDatabaseName("testdb")
-                withUsername("joao")
-                withPassword("123456")
-                withReuse(true)
-            }
-
-            @Container
-            private val redisContainer = GenericContainer<Nothing>("redis:latest").apply {
-                withExposedPorts(6379)
-
-            }
-
-            @JvmStatic
-            @DynamicPropertySource
-            fun properties(registry: DynamicPropertyRegistry) {
-                registry.add("spring.datasource.url", mysqlContainer::getJdbcUrl);
-                registry.add("spring.datasource.password", mysqlContainer::getPassword);
-                registry.add("spring.datasource.username", mysqlContainer::getUsername);
-
-                registry.add("spring.redis.host", redisContainer::getContainerIpAddress)
-                registry.add("spring.redis.port", redisContainer::getFirstMappedPort)
-            }
-        }
     @Test
     fun `deve gerar um relatorio`() {
         paymentRepository.save(payment)
@@ -59,7 +32,4 @@ class PaymentRepositoryTest: ContainerConfiguration(){
 
         assertThat(relatorio).isNotNull
     }
-
-
-
 }
