@@ -1,1 +1,1 @@
-ISERT INTO payments (id, amount, card_number, expiration_date, cvv, customer_id) VALUES (1, 10.0, '5502 0000 9999 1234', '2030/10', '123', 1);
+INSERT INTO payments (id, amount, card_number, expiration_date, cvv, customer_id) VALUES (1, 10.0, '5502 0000 9999 1234', '2030/10', '123', 1);

@@ -1,5 +1,6 @@
 package br.com.guilhermedealmeidafreitas.paymentsms.controller
 
+import br.com.guilhermedealmeidafreitas.paymentsms.config.ContainerConfiguration
 import br.com.guilhermedealmeidafreitas.paymentsms.config.JWTUtil
 import br.com.guilhermedealmeidafreitas.paymentsms.model.Role
 import org.junit.jupiter.api.BeforeEach
@@ -12,9 +13,11 @@ import org.springframework.test.web.servlet.get
 import org.springframework.test.web.servlet.setup.DefaultMockMvcBuilder
 import org.springframework.test.web.servlet.setup.MockMvcBuilders
 import org.springframework.web.context.WebApplicationContext
+import org.testcontainers.junit.jupiter.Testcontainers
 
+@Testcontainers
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-class PaymentControllerTest {
+class PaymentControllerTest: ContainerConfiguration() {
     @Autowired
     private lateinit var jwtUtil: JWTUtil
     @Autowired

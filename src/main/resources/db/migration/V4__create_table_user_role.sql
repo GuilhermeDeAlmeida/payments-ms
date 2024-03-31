@@ -1,4 +1,4 @@
-CREATE TABLE user_role(
+CREATE TABLE IF NOT EXISTS user_role(
     id BIGINT NOT NULL AUTO_INCREMENT,
     user_id BIGINT NOT NULL,
     role_id BIGINT NOT NULL,

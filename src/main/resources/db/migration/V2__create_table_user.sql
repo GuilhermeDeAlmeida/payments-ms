@@ -1,4 +1,4 @@
-create table user(
+create table IF NOT EXISTS user(
     id bigint not null auto_increment,
     name varchar(50) not null,
     username varchar(50) not null,
