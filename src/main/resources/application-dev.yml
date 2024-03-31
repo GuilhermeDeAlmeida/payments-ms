@@ -16,8 +16,8 @@ spring:
   datasource:
     driverclassName: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/paymentdb
-    username: root
-    password: root
+    username: dbeaver
+    password: dbeaver
   jpa:
     properties:
       hibernate:
