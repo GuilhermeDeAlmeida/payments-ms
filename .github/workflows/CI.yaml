@@ -3,7 +3,7 @@ name: CI
 on:
   push:
     branches:
-      - '*'
+      - 'test'
 
 jobs:
   in-docker_test:
